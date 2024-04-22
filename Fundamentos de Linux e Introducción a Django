@@ -81,3 +81,27 @@ def login_required_view(request):
         template="ecommerce/list-view-public.html"
 
     return render(request, template, context)
+
+///CLASSES
+
+from django.db import models
+
+# Create your models here.
+class ProductModel(models.Model):
+    title = models.TextField()
+    price = models.FloatField()
+
+class CategoryModel(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+
+class SubcategoryModel(CategoryModel):
+    subcategory_name = models.TextField()
+
+class ReviewModel(models.Model):
+        product = models.TextField()
+        customer = models.TextField()
+        rating = models.IntegerField()
+        comment = models.TextField()
+
+
