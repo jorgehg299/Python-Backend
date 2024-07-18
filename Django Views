@@ -1,0 +1,25 @@
+from django.db import models
+
+# Create your models here.
+class ProductModel(models.Model):
+    title = models.TextField()
+    price = models.FloatField()
+    description = models.TextField(default="No description provided")  # Valor por defecto
+    supplier = models.TextField(default="Unknown supplier")            # Valor por defecto
+    color = models.CharField(max_length=30, default="Unknown color")   # Valor por defecto
+    dimensions = models.CharField(max_length=100, default="Unknown dimensions") 
+
+
+class CategoryModel(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+
+class SubcategoryModel(CategoryModel):
+    subcategory_name = models.TextField()
+
+class ReviewModel(models.Model):
+        product = models.TextField()
+        customer = models.TextField()
+        rating = models.IntegerField()
+        comment = models.TextField()
+
